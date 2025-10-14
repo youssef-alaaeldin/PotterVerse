@@ -17,14 +17,13 @@ public struct BottomTabsView: View {
         TabView(selection: $appState.selectedTab) {
             homeTabView()
                 .toolbarBackground(.ultraThinMaterial, for: .tabBar)
-            notificationsTabView()
+            searchTabView()
                 .toolbarBackground(.ultraThinMaterial, for: .tabBar)
-//            ordersTabView()
-//                .toolbarBackground(.ultraThinMaterial, for: .tabBar)
+            favoritesTabView()
+                .toolbarBackground(.ultraThinMaterial, for: .tabBar)
             profileTabView()
                 .toolbarBackground(.ultraThinMaterial, for: .tabBar)
         }
-        
     }
     
     @ViewBuilder
@@ -36,31 +35,33 @@ public struct BottomTabsView: View {
         .navigationViewStyle(.stack)
         .tag(Tabs.home)
         .tabItem {
-            appState.selectedTab == .home ? Image(.homeSelected) : Image(.home)
+            Image(systemName: "house")
         }
     }
     
     @ViewBuilder
-    func notificationsTabView() -> some View {
+    func searchTabView() -> some View {
         NavCoordinatorView(
-            coordinator: appState.notificationCoordinator,
-            rootView: .notifcaitons
+            coordinator: appState.searchCoordinator,
+            rootView: .search
         )
-        .tag(Tabs.notifications)
+        .navigationViewStyle(.stack)
+        .tag(Tabs.search)
         .tabItem {
-            appState.selectedTab == .notifications ? Image(.notificationSelected) : Image(.notification)
+            Image(systemName: "magnifyingglass")
         }
     }
     
     @ViewBuilder
-    func ordersTabView() -> some View {
+    func favoritesTabView() -> some View {
         NavCoordinatorView(
-            coordinator: appState.ordersCoordinator,
-            rootView: .orders
+            coordinator: appState.favoritesCoordinator,
+            rootView: .favorites
         )
-        .tag(Tabs.profile)
+        .navigationViewStyle(.stack)
+        .tag(Tabs.favorites)
         .tabItem {
-            appState.selectedTab == .orders ? Image(.cartSelected) : Image(.orders)
+            Image(systemName: "bookmark")
         }
     }
     
@@ -72,7 +73,7 @@ public struct BottomTabsView: View {
         )
         .tag(Tabs.profile)
         .tabItem {
-            appState.selectedTab == .profile ? Image(.profileSelected) : Image(.profile)
+           Image(systemName: "person")
         }
     }
 }
