@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0BADEED72E9E7A6F00A85554 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 0BADEED62E9E7A6F00A85554 /* Factory */; };
+		0BADEED92E9E7A6F00A85554 /* FactoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0BADEED82E9E7A6F00A85554 /* FactoryKit */; };
+		0BADEEDC2E9E7A8000A85554 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0BADEEDB2E9E7A8000A85554 /* SDWebImageSwiftUI */; };
+		0BADEEDF2E9E7AA000A85554 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0BADEEDE2E9E7AA000A85554 /* Alamofire */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		0BADEDBC2E9E742E00A85554 /* PotterVerse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PotterVerse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +30,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BADEEDC2E9E7A8000A85554 /* SDWebImageSwiftUI in Frameworks */,
+				0BADEEDF2E9E7AA000A85554 /* Alamofire in Frameworks */,
+				0BADEED92E9E7A6F00A85554 /* FactoryKit in Frameworks */,
+				0BADEED72E9E7A6F00A85554 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +44,7 @@
 			isa = PBXGroup;
 			children = (
 				0BADEDBE2E9E742E00A85554 /* PotterVerse */,
+				0BADEEE52E9E7F5900A85554 /* Frameworks */,
 				0BADEDBD2E9E742E00A85554 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +55,13 @@
 				0BADEDBC2E9E742E00A85554 /* PotterVerse.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0BADEEE52E9E7F5900A85554 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,6 +84,10 @@
 			);
 			name = PotterVerse;
 			packageProductDependencies = (
+				0BADEED62E9E7A6F00A85554 /* Factory */,
+				0BADEED82E9E7A6F00A85554 /* FactoryKit */,
+				0BADEEDB2E9E7A8000A85554 /* SDWebImageSwiftUI */,
+				0BADEEDE2E9E7AA000A85554 /* Alamofire */,
 			);
 			productName = PotterVerse;
 			productReference = 0BADEDBC2E9E742E00A85554 /* PotterVerse.app */;
@@ -94,6 +117,11 @@
 			);
 			mainGroup = 0BADEDB32E9E742E00A85554;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				0BADEED52E9E7A6F00A85554 /* XCRemoteSwiftPackageReference "Factory" */,
+				0BADEEDA2E9E7A8000A85554 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				0BADEEDD2E9E7AA000A85554 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0BADEDBD2E9E742E00A85554 /* Products */;
 			projectDirPath = "";
@@ -332,6 +360,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0BADEED52E9E7A6F00A85554 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.3;
+			};
+		};
+		0BADEEDA2E9E7A8000A85554 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
+			};
+		};
+		0BADEEDD2E9E7AA000A85554 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire?tab=readme-ov-file#installation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0BADEED62E9E7A6F00A85554 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BADEED52E9E7A6F00A85554 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+		0BADEED82E9E7A6F00A85554 /* FactoryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BADEED52E9E7A6F00A85554 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = FactoryKit;
+		};
+		0BADEEDB2E9E7A8000A85554 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BADEEDA2E9E7A8000A85554 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		0BADEEDE2E9E7AA000A85554 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BADEEDD2E9E7AA000A85554 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0BADEDB42E9E742E00A85554 /* Project object */;
 }
