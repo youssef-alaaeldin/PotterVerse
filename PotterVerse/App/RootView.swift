@@ -17,7 +17,7 @@ struct RootView: View {
     
     var body: some View {
         ZStack {
-            
+            OnboardingView()
         }
 //        ZStack {
 //            if appState.currentView == .onboarding {
