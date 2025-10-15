@@ -17,9 +17,22 @@
 		0BADEDBC2E9E742E00A85554 /* PotterVerse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PotterVerse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0B7A38CD2E9FBC54009C0622 /* Exceptions for "PotterVerse" folder in "PotterVerse" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0BADEDBB2E9E742E00A85554 /* PotterVerse */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0BADEDBE2E9E742E00A85554 /* PotterVerse */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0B7A38CD2E9FBC54009C0622 /* Exceptions for "PotterVerse" folder in "PotterVerse" target */,
+			);
 			path = PotterVerse;
 			sourceTree = "<group>";
 		};
@@ -284,6 +297,7 @@
 				DEVELOPMENT_TEAM = 842ALSJDA7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PotterVerse/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -316,6 +330,7 @@
 				DEVELOPMENT_TEAM = 842ALSJDA7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PotterVerse/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

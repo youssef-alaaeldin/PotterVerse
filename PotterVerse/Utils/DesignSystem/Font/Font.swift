@@ -10,7 +10,7 @@ import SwiftUI
 extension Font {
     static let titleCustom: Font = .system(size: 48, weight: .bold)
 
-    static let heading1: Font = .custom("Luminari", size: 28)
+    static let heading1: Font = .custom("CinzelDecorative-Regular", size: 38)
     
     static func regular(_ size: CGFloat) -> Font {
         .system(size: size, weight: .regular)
