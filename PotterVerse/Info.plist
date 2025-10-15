@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>CinzelDecorative-Regular.ttf</string>
+		<string>CinzelDecorative-Bold.ttf</string>
 		<string>LUMOS.ttf</string>
 		<string>Luminari.ttf</string>
 	</array>

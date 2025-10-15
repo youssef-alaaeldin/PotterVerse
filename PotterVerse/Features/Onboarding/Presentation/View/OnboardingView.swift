@@ -19,7 +19,9 @@ struct OnboardingView: View {
                 Text("POTTERVERSE")
                     .font(.heading1)
                     .foregroundStyle(.primaryGold)
+                    .fontWeight(.heavy)
             }
+            .padding(.horizontal, 24)
         }
     }
 }
