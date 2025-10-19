@@ -10,19 +10,20 @@ import Factory
 import Combine
 
 enum RootViewType: String, CaseIterable {
+    case mainScreen
     case onboarding
     case bottomTabs
 }
 
 class AppState: ObservableObject {
-    @Published public var currentAppStateFlow: RootViewType = .onboarding {
+    @Published public var currentAppStateFlow: RootViewType = .mainScreen {
         didSet {
             rootViewID = UUID()
         }
     }
     
-    @Published var rootView: Screen = .onboarding
-    @Published var currentView: RootViewType = .onboarding
+    @Published var rootView: Screen = .mainScreen
+    @Published var currentView: RootViewType = .mainScreen
     @Published var rootViewID: UUID = UUID() //To Reset The views
     @Published var selectedTab = Tabs.home {
         willSet{

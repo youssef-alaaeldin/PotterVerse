@@ -16,29 +16,12 @@ struct RootView: View {
             switch appState.currentAppStateFlow {
             case .onboarding:
                 OnboardingView()
+            case .mainScreen:
+                MainScreenView()
             case .bottomTabs:
                 BottomTabsView()
             }
         }
-    }
-    
-    private func updateCurrentView(initial: Bool = false) {
-//        let animationBlock = {
-//            if !userToken.isEmpty && userCompletedAuthentication {
-//                appState.navigateToHomeAfterSignedIn()
-//            } else {
-//                appState.navigateToAuthenticationAfterSignedOut()
-//            }
-//        }
-//        
-//        if initial {
-//            // No animation during the initial rendering
-//            animationBlock()
-//        } else {
-//            withAnimation {
-//                animationBlock()
-//            }
-//        }
     }
 }
 
