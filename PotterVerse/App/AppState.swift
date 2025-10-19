@@ -15,6 +15,12 @@ enum RootViewType: String, CaseIterable {
 }
 
 class AppState: ObservableObject {
+    @Published public var currentAppStateFlow: RootViewType = .onboarding {
+        didSet {
+            rootViewID = UUID()
+        }
+    }
+    
     @Published var rootView: Screen = .onboarding
     @Published var currentView: RootViewType = .onboarding
     @Published var rootViewID: UUID = UUID() //To Reset The views
@@ -110,46 +116,6 @@ extension AppState {
         }
     }
 }
-
-//MARK: - Handle App Base Navigation -
-
-//extension AppState {
-//    
-//    func navigateToHomeAfterSignedIn() {
-//        getCurrentUser()
-//        selectedTab = .home
-//        rootViewID = UUID()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
-//            guard let self = self else {return}
-//            withAnimation {
-//                self.currentView = .bottomTabs
-//            }
-//        }
-//    }
-//    func navigateToAuthenticationAfterSignedOut() {
-//        rootViewID = UUID()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
-//            guard let self = self else { return }
-//            withAnimation {
-//                self.currentView = .login
-//            }
-//        }
-//    }
-//}
-
-
-//MARK: - Handle App DeepLink -
-
-//extension AppState {
-//    func clearUserDataAfterSignedOut() {
-//        DispatchQueue.main.async { [weak self] in
-//            guard let self = self else { return }
-//            userToken.removeAll()
-//            userCompletedAuthentication = false
-//            currentUser = nil
-//        }
-//    }
-//}
 
 // MARK: - Dependices
 extension Container {

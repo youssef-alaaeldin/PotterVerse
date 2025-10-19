@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Factory
 
 struct OnboardingView: View {
+    @InjectedObject(\.appState) private var appState
+    
     @State private var upAndDownAnimation: Bool = false
     
     var body: some View {
@@ -47,7 +50,7 @@ struct OnboardingView: View {
                 .animation(.easeIn(duration: 1.2).repeatForever(autoreverses: true), value: upAndDownAnimation)
                 
                 CustomButton(title: "Enter the Magic") {
-                    
+                    appState.currentAppStateFlow = .bottomTabs
                 }
                 .padding(.top, 24)
             }
