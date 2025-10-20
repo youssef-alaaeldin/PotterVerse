@@ -14,3 +14,11 @@ protocol Endpoint {
     var headers: [String: String]? { get }
     var body: Any? { get }
 }
+
+extension Endpoint {
+    var mainURL: String {
+        return "https://api.potterdb.com/"
+    }
+}
+
+

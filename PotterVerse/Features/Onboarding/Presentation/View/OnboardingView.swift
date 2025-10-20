@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Factory
 
 struct OnboardingView: View {
+    @InjectedObject(\.appState) private var appState
+
     @State private var counter: Int = 0
     @State private var currentPage: Int = 0
     
@@ -87,6 +90,7 @@ extension OnboardingView {
             //TODO: Navigate to the next screen
             //SAVE TO USERDEFAULTS
 //            savedSplashScreen = true
+            appState.currentAppStateFlow = .bottomTabs
         } else {
             withAnimation {
                 currentPage += 1
