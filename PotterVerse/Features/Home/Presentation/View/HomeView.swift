@@ -21,37 +21,39 @@ struct HomeView: View {
                 title
                 
                 ScrollView {
-                    LazyVGrid(columns: columns, spacing: 16) {
-                        HomeCardView(title: "Characters", imageName: "person.2") {
-                            
-                        }
-                        HomeCardView(title: "Spells", imageName: "wand.and.sparkles") {
-                            
-                        }
-                        
-                        HomeCardView(title: "Houses", imageName: "shield") {
-                            
-                        }
-                        
-                        HomeCardView(title: "Books", imageName: "book") {
-                            
-                        }
-                        
-                        HomeCardView(title: "Potions", imageName: "sparkles") {
-                            
-                        }
-                    }
-                    .padding()
+                    gridView
                 }
-                Spacer()
             }
+            .padding(.horizontal, 24)
         }
     }
 }
 
 // MARK: - Components
-
 extension HomeView {
+    private var gridView: some View {
+        LazyVGrid(columns: columns, spacing: 16) {
+            HomeCardView(title: "Characters", imageName: "person.2") {
+                
+            }
+            HomeCardView(title: "Spells", imageName: "wand.and.sparkles") {
+                
+            }
+            
+            HomeCardView(title: "Houses", imageName: "shield") {
+                
+            }
+            
+            HomeCardView(title: "Books", imageName: "book") {
+                
+            }
+            
+            HomeCardView(title: "Potions", imageName: "sparkles") {
+                
+            }
+        }
+        .padding(.top)
+    }
     private var title: some View {
         VStack(spacing: 0) {
             Text("Welcome To the")
