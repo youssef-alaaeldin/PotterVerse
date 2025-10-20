@@ -23,16 +23,7 @@ struct OnboardingView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(
-                gradient: Gradient(stops: [
-                    .init(color: .bgGradient, location: 0.2),
-                    .init(color: .bg, location: 0.5),
-                    .init(color: .bgGradient, location: 0.99)
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
+            BackgroundGradient()
             
             VStack(spacing: 25) {
             
