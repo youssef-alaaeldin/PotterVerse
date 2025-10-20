@@ -2,64 +2,96 @@
 //  OnboardingView.swift
 //  PotterVerse
 //
-//  Created by Yousuf Abdelfattah on 15/10/2025.
+//  Created by Yousuf Abdelfattah on 19/10/2025.
 //
 
 import SwiftUI
-import Factory
 
 struct OnboardingView: View {
-    @InjectedObject(\.appState) private var appState
+    @State private var counter: Int = 0
+    @State private var currentPage: Int = 0
     
-    @State private var upAndDownAnimation: Bool = false
+    private let onboardingContent: [Onboarding] = [
+        Onboarding(title: "BROWSE CHARACTERS", icon: "wand.and.sparkles", descreption: "Discover witches, wizards, and magical creatures from the wizarding world"),
+        Onboarding(title: "Learn Spells", icon: "book", descreption: "Master the art of magic with our comprehensive spell encyclopedia"),
+        Onboarding(title: "Explore Houses", icon: "shield", descreption: "Dive deep into the history and traits of each Hogwarts house"),
+        Onboarding(title: "Discover More", icon: "drop", descreption: "Books, potions, and countless magical artifacts await you"),
+    ]
     
     var body: some View {
         ZStack {
-            Image(.hogwarts)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .ignoresSafeArea()
+            LinearGradient(
+                gradient: Gradient(stops: [
+                    .init(color: .bgGradient, location: 0.2),
+                    .init(color: .bg, location: 0.5),
+                    .init(color: .bgGradient, location: 0.99)
+                ]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
             
-            Rectangle()
-                .opacity(0.5)
-                .ignoresSafeArea()
+            VStack(spacing: 25) {
             
-            VStack(spacing: 12) {
-                Text("POTTERVERSE")
-                    .font(.heading1)
-                    .foregroundStyle(.primaryGold)
-                    .fontWeight(.heavy)
+                OnboardingTabView(currentPage: $currentPage, onboardingContent: onboardingContent)
                 
-                Text("Explore The Wizarding World")
-                    .font(.title3)
-                    .foregroundStyle(.white)
+                onBoardingDots
                 
-                HStack {
-                    Circle()
-                        .frame(width: 6, height: 6)
-                    
-                    Circle()
-                        .frame(width: 6, height: 6)
-                    
-                    Circle()
-                        .frame(width: 6, height: 6)
-                }
-                .foregroundStyle(.primaryGold)
-                .padding(.top, 14)
-                .offset(y: upAndDownAnimation ? -6 : 6)
-                .animation(.easeIn(duration: 1.2).repeatForever(autoreverses: true), value: upAndDownAnimation)
+                buttons
                 
-                CustomButton(title: "Enter the Magic") {
-                    appState.currentAppStateFlow = .bottomTabs
-                }
-                .padding(.top, 24)
+                Spacer()
+                
             }
             .padding(.horizontal, 24)
         }
-        .onAppear {
-            withAnimation {
-                upAndDownAnimation.toggle()
+    }
+    
+    private var buttons: some View {
+        HStack(spacing: 24) {
+            CustomButton(title: "Skip", backgroundColor: .black, foregroundColor: .white) {
+                
             }
+            CustomButton(title: currentPage == 3 ? "Start": "Next") {
+                buttonAction()
+            }
+        }
+    }
+}
+
+// MARK: - Components
+extension OnboardingView {
+    private var onBoardingDots: some View {
+        HStack(spacing: 12) {
+            ForEach(0..<onboardingContent.count, id: \.self) { index in
+                Rectangle()
+                    .frame(width: currentPage == index ? 35 : 12, height: 12)
+                    .foregroundStyle(.primaryGold)
+                    .cornerRadius(12)
+                    .animation(.spring(), value: currentPage)
+                    .onTapGesture {
+                        withAnimation {
+                            currentPage = index
+                        }
+                    }
+            }
+        }
+        .padding(.top, 13)
+        .padding(.bottom, 46)
+    }
+}
+
+// MARK: - Actions
+extension OnboardingView {
+    private func buttonAction() {
+        if currentPage == onboardingContent.count - 1 {
+            //TODO: Navigate to the next screen
+            //SAVE TO USERDEFAULTS
+//            savedSplashScreen = true
+        } else {
+            withAnimation {
+                currentPage += 1
+            }
+            print(currentPage)
         }
     }
 }

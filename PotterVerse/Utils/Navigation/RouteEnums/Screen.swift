@@ -8,6 +8,7 @@
 import Foundation
 
 enum Screen {
+    case mainScreen
     case onboarding
     case home
     case search

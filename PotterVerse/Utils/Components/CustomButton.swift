@@ -10,7 +10,7 @@ import SwiftUI
 struct CustomButton: View {
     // MARK: - Configurable Properties
     var title: String
-    var action: () -> Void
+    
     
     var backgroundColor: Color = .primaryGold
     var foregroundColor: Color = .black
@@ -23,13 +23,14 @@ struct CustomButton: View {
     var horizontalPadding: CGFloat = 25
     var verticalPadding: CGFloat = 10
     
+    var action: () -> Void
     // MARK: - Body
     var body: some View {
         Button(action: action) {
             Text(title)
                 .font(font)
                 .foregroundColor(foregroundColor)
-//                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity)
                 .padding(.vertical, verticalPadding)
                 .padding(.horizontal, horizontalPadding)
                 .background(
@@ -45,31 +46,31 @@ struct CustomButton: View {
     }
 }
 
-#Preview {
-    VStack(spacing: 16) {
-        CustomButton(title: "Get Started") {
-            print("Primary Button Tapped")
-        }
-        
-        CustomButton(
-            title: "Outlined Button",
-            action: { print("Outlined tapped") },
-            backgroundColor: .clear,
-            foregroundColor: .red,
-            cornerRadius: 25,
-            font: .title3,
-            strokeColor: .red,
-            strokeWidth: 2
-        )
-        
-        CustomButton(
-            title: "Custom BG + Font",
-            action: { print("Fancy tapped") },
-            backgroundColor: Color.green,
-            foregroundColor: .black,
-            cornerRadius: 50,
-            font: .system(size: 18, weight: .bold)
-        )
-    }
-    .padding()
-}
+//#Preview {
+//    VStack(spacing: 16) {
+//        CustomButton(title: "Get Started") {
+//            print("Primary Button Tapped")
+//        }
+//        
+//        CustomButton(
+//            title: "Outlined Button",
+//            action: { print("Outlined tapped") },
+//            backgroundColor: .clear,
+//            foregroundColor: .red,
+//            cornerRadius: 25,
+//            font: .title3,
+//            strokeColor: .red,
+//            strokeWidth: 2
+//        )
+//        
+//        CustomButton(
+//            title: "Custom BG + Font",
+//            action: { print("Fancy tapped") },
+//            backgroundColor: Color.green,
+//            foregroundColor: .black,
+//            cornerRadius: 50,
+//            font: .system(size: 18, weight: .bold)
+//        )
+//    }
+//    .padding()
+//}
