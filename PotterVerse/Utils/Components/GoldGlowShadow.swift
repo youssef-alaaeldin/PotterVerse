@@ -11,13 +11,13 @@ struct GoldGlowShadow: ViewModifier {
     func body(content: Content) -> some View {
         content
             .shadow(color: Color.primaryGold.opacity(0.3),
-                    radius: 10, x: 0, y: 0)
+                    radius: 4, x: 0, y: 0)
     }
 }
 
 
 extension View {
-    func goldGlowShadow() -> some View {
-        self.modifier(GoldGlowShadow())
-    }
+        func goldGlowShadow() -> some View {
+            self.modifier(GoldGlowShadow())
+        }
 }

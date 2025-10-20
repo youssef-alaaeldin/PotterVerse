@@ -12,6 +12,10 @@ extension Font {
 
     static let heading1: Font = .custom("CinzelDecorative-Regular", size: 38)
     
+    static let heading2: Font = .custom("CinzelDecorative-Regular", size: 40)
+    
+    static let heading3: Font = .custom("CinzelDecorative-Regular", size: 50)
+    
     static let cardTitle: Font = .custom("CinzelDecorative-Regular", size: 16)
     
     static func regular(_ size: CGFloat) -> Font {

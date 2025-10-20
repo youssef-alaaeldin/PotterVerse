@@ -28,6 +28,7 @@ struct HomeCardView: View {
                 .fontWeight(.bold)
                 .foregroundStyle(.white)
         }
+        .frame(maxWidth: 125, minHeight: 120)
         .padding(20)
         .background(.card)
         .cornerRadius(20)
