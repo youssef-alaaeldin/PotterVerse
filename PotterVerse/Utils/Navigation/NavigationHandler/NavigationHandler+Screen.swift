@@ -12,8 +12,16 @@ extension NavRouter {
     @ViewBuilder
     public func build(screen: Screen) -> some View {
         switch screen {
-            default:
-                EmptyView()
+        case .home:
+            HomeView()
+        case .search:
+            Text("Search")
+        case .favorites:
+            Text("Favorites")
+        case .profile:
+            Text("Profile")
+        default:
+            EmptyView()
         }
     }
 }
