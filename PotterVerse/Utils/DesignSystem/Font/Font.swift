@@ -55,7 +55,7 @@ extension Font {
     }
  
     
-    static func custom(weight: Font.Weight, size: CGFloat) -> Font {
-        .system(size: size, weight: weight)
+    static func custom(size: CGFloat) -> Font {
+        .custom("CinzelDecorative-Regular", size: size)
     }
 }
