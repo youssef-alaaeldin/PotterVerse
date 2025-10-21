@@ -17,7 +17,7 @@ protocol Endpoint {
 
 extension Endpoint {
     var mainURL: String {
-        return "https://api.potterdb.com/"
+        return "https://hp-api.onrender.com"
     }
 }
 
