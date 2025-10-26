@@ -28,6 +28,7 @@ struct CharactersView: View {
                             CharacterCard(character: character)
                                 .padding(.vertical, 10)
                         }
+                        .redactedLoading(isLoading: $viewModel.isCharactersLoading)
                     }
                 }
                 .padding(.top, 20)
