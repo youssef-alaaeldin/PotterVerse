@@ -10,12 +10,12 @@ import Foundation
 struct CharactersMapper: RemoteMapperProtocol {
     func dtoToDomain(_ model: CharacterDTO) -> CharacterDomain {
         return CharacterDomain(
+            id: UUID().uuidString,
             fullName: model.fullName,
             nickname: model.nickname,
             hogwartsHouse: model.hogwartsHouse,
             image: model.image,
             birthdate: model.birthdate,
-            index: model.index
         )
         
     }

@@ -20,10 +20,11 @@ struct CharactersView: View {
             
             VStack {
                 HeaderView(title: "Characters") {
-                    
+                    viewModel.pop()
                 }
+                
                 ScrollView {
-                    ForEach(viewModel.characters ?? [], id: \.index) { character in
+                    ForEach(viewModel.characters ?? []) { character in
                         LazyVStack {
                             CharacterCard(character: character)
                                 .padding(.vertical, 10)
@@ -32,8 +33,6 @@ struct CharactersView: View {
                     }
                 }
                 .padding(.top, 20)
-                
-                Spacer()
             }
             
         }
