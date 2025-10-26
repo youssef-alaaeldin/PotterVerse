@@ -17,7 +17,7 @@ protocol Endpoint {
 
 extension Endpoint {
     var mainURL: String {
-        return "https://hp-api.onrender.com"
+        return "https://potterapi-fedeperin.vercel.app/en"
     }
 }
 
