@@ -8,10 +8,6 @@
 import Foundation
 import Factory
 
-protocol CharactersRepositoryProtocol {
-    func getCharacters(charactersRequest: CharactersRequest) async throws -> [CharacterDomain]
-}
-
 class CharactersRepository: CharactersRepositoryProtocol {
     @Injected(\.characterRemoteDS) private var characterRemoteDS
     
