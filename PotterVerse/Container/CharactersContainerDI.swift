@@ -13,4 +13,14 @@ extension Container {
     var characterRemoteDS: Factory<CharactersRemoteDSProtocol> {
         Factory(self) { CharactersRemoteDS() }
     }
+    
+    // MARK: - Repository
+    var characterRepository: Factory<CharactersRepositoryProtocol> {
+        Factory(self) { CharactersRepository() }
+    }
+    
+    // MARK: - Use Case
+    var getCharatersUseCase: Factory<GetCharactersUseCaseProtocol> {
+        Factory(self) { GetCharactersUseCase() }
+    }
 }
