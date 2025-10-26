@@ -9,7 +9,7 @@ import Foundation
 import Factory
 
 
-class CharactersRemoteDS: CharactersRemoteDSProtocol {
+final class CharactersRemoteDS: CharactersRemoteDSProtocol {
     @Injected(\.networkProvider) private var networkProvider
     
     func getCharacters(charactersRequest: CharactersRequest) async throws -> [CharacterDTO] {
