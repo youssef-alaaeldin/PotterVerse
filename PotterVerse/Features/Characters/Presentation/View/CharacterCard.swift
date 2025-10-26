@@ -26,13 +26,13 @@ struct CharacterCard: View {
                 
                 
                 VStack(alignment: .leading, spacing: 6) {
-                    Text(character.name)
+                    Text(character.fullName)
                         .lineLimit(2)
                         .font(.custom(size: 20))
                         .fontWeight(.bold)
                         .foregroundStyle(.white)
                     
-                    Text(character.species.uppercased())
+                    Text(character.hogwartsHouse)
                         .font(.subheadline)
                         .foregroundStyle(.text)
                 }
@@ -50,30 +50,30 @@ struct CharacterCard: View {
         }
 }
 
-#Preview {
-    ZStack {
-        BackgroundGradient()
-        CharacterCard(character: CharacterDomain(
-            id: UUID().uuidString,
-            name: "Harry Potter",
-            alternateNames: ["The Boy Who Lived"],
-            species: "Human",
-            gender: "Male",
-            house: "Gryffindor",
-            dateOfBirth: "31-07-1980",
-            yearOfBirth: 1980,
-            wizard: true,
-            ancestry: "Half-blood",
-            eyeColour: "Green",
-            hairColour: "Black",
-            wand: Wand(wood: "Holly", core: "Phoenix feather", length: 11),
-            patronus: "Stag",
-            hogwartsStudent: true,
-            hogwartsStaff: false,
-            actor: "Daniel Radcliffe",
-            alternateActors: [],
-            alive: true,
-            image: "https://ik.imagekit.io/hpapi/harry.jpg"
-        ))
-    }
-}
+//#Preview {
+//    ZStack {
+//        BackgroundGradient()
+//        CharacterCard(character: CharacterDomain(
+//            id: UUID().uuidString,
+//            name: "Harry Potter",
+//            alternateNames: ["The Boy Who Lived"],
+//            species: "Human",
+//            gender: "Male",
+//            house: "Gryffindor",
+//            dateOfBirth: "31-07-1980",
+//            yearOfBirth: 1980,
+//            wizard: true,
+//            ancestry: "Half-blood",
+//            eyeColour: "Green",
+//            hairColour: "Black",
+//            wand: Wand(wood: "Holly", core: "Phoenix feather", length: 11),
+//            patronus: "Stag",
+//            hogwartsStudent: true,
+//            hogwartsStaff: false,
+//            actor: "Daniel Radcliffe",
+//            alternateActors: [],
+//            alive: true,
+//            image: "https://ik.imagekit.io/hpapi/harry.jpg"
+//        ))
+//    }
+//}

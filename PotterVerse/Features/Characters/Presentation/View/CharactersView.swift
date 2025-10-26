@@ -23,7 +23,7 @@ struct CharactersView: View {
                     
                 }
                 ScrollView {
-                    ForEach(viewModel.characters ?? [], id: \.id) { character in
+                    ForEach(viewModel.characters ?? [], id: \.index) { character in
                         LazyVStack {
                             CharacterCard(character: character)
                                 .padding(.vertical, 10)

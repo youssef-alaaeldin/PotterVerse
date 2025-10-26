@@ -12,120 +12,65 @@ struct CharacterDomain {
     let hogwartsHouse: String
     let image: String
     let birthdate: String
+    let index: Int
 }
 
 // MARK: - Mock Data
 extension CharacterDomain {
-    static let mockList: [CharacterDomain] = [
-        CharacterDomain(
-            id: UUID().uuidString,
-            name: "Harry Potter",
-            alternateNames: ["The Boy Who Lived"],
-            species: "Human",
-            gender: "Male",
-            house: "Gryffindor",
-            dateOfBirth: "31-07-1980",
-            yearOfBirth: 1980,
-            wizard: true,
-            ancestry: "Half-blood",
-            eyeColour: "Green",
-            hairColour: "Black",
-            wand: Wand(wood: "Holly", core: "Phoenix feather", length: 11),
-            patronus: "Stag",
-            hogwartsStudent: true,
-            hogwartsStaff: false,
-            actor: "Daniel Radcliffe",
-            alternateActors: [],
-            alive: true,
-            image: "https://ik.imagekit.io/hpapi/harry.jpg"
-        ),
-        CharacterDomain(
-            id: UUID().uuidString,
-            name: "Hermione Granger",
-            alternateNames: [],
-            species: "Human",
-            gender: "Female",
-            house: "Gryffindor",
-            dateOfBirth: "19-09-1979",
-            yearOfBirth: 1979,
-            wizard: true,
-            ancestry: "Muggle-born",
-            eyeColour: "Brown",
-            hairColour: "Brown",
-            wand: Wand(wood: "Vine", core: "Dragon heartstring", length: 10.75),
-            patronus: "Otter",
-            hogwartsStudent: true,
-            hogwartsStaff: false,
-            actor: "Emma Watson",
-            alternateActors: [],
-            alive: true,
-            image: "https://ik.imagekit.io/hpapi/hermione.jpeg"
-        ),
-        CharacterDomain(
-            id: UUID().uuidString,
-            name: "Ron Weasley",
-            alternateNames: [],
-            species: "Human",
-            gender: "Male",
-            house: "Gryffindor",
-            dateOfBirth: "01-03-1980",
-            yearOfBirth: 1980,
-            wizard: true,
-            ancestry: "Pure-blood",
-            eyeColour: "Blue",
-            hairColour: "Red",
-            wand: Wand(wood: "Willow", core: "Unicorn tail hair", length: 14),
-            patronus: "Jack Russell terrier",
-            hogwartsStudent: true,
-            hogwartsStaff: false,
-            actor: "Rupert Grint",
-            alternateActors: [],
-            alive: true,
-            image: "https://ik.imagekit.io/hpapi/ron.jpg"
-        ),
-        CharacterDomain(
-            id: UUID().uuidString,
-            name: "Albus Dumbledore",
-            alternateNames: ["Professor Dumbledore"],
-            species: "Human",
-            gender: "Male",
-            house: "Gryffindor",
-            dateOfBirth: "Unknown",
-            yearOfBirth: 1881,
-            wizard: true,
-            ancestry: "Half-blood",
-            eyeColour: "Blue",
-            hairColour: "Silver",
-            wand: Wand(wood: "Elder", core: "Thestral tail hair", length: 15),
-            patronus: "Phoenix",
-            hogwartsStudent: false,
-            hogwartsStaff: true,
-            actor: "Richard Harris",
-            alternateActors: ["Michael Gambon"],
-            alive: false,
-            image: "https://ik.imagekit.io/hpapi/dumbledore.jpg"
-        ),
-        CharacterDomain(
-            id: UUID().uuidString,
-            name: "Severus Snape",
-            alternateNames: ["The Half-Blood Prince"],
-            species: "Human",
-            gender: "Male",
-            house: "Slytherin",
-            dateOfBirth: "09-01-1960",
-            yearOfBirth: 1960,
-            wizard: true,
-            ancestry: "Half-blood",
-            eyeColour: "Black",
-            hairColour: "Black",
-            wand: Wand(wood: "Unknown", core: "Unknown", length: 0),
-            patronus: "Doe",
-            hogwartsStudent: false,
-            hogwartsStaff: true,
-            actor: "Alan Rickman",
-            alternateActors: [],
-            alive: false,
-            image: "https://ik.imagekit.io/hpapi/snape.jpg"
-        )
-    ]
+    static let mockList: [CharacterDomain] = {
+        let characters: [CharacterDomain] = [
+            CharacterDomain(
+                fullName: "Harry Potter",
+                nickname: "The Boy Who Lived",
+                hogwartsHouse: "Gryffindor",
+                image: "https://ik.imagekit.io/hpapi/harry.jpg",
+                birthdate: "31-07-1980",
+                index: 0
+            ),
+            CharacterDomain(
+                fullName: "Hermione Granger",
+                nickname: "Brightest Witch of Her Age",
+                hogwartsHouse: "Gryffindor",
+                image: "https://ik.imagekit.io/hpapi/hermione.jpeg",
+                birthdate: "19-09-1979",
+                index: 1
+            ),
+            CharacterDomain(
+                fullName: "Ron Weasley",
+                nickname: "Ron",
+                hogwartsHouse: "Gryffindor",
+                image: "https://ik.imagekit.io/hpapi/ron.jpg",
+                birthdate: "01-03-1980",
+                index: 2
+            ),
+            CharacterDomain(
+                fullName: "Draco Malfoy",
+                nickname: "Draco",
+                hogwartsHouse: "Slytherin",
+                image: "https://ik.imagekit.io/hpapi/draco.jpg",
+                birthdate: "05-06-1980",
+                index: 3
+            ),
+            CharacterDomain(
+                fullName: "Luna Lovegood",
+                nickname: "Loony",
+                hogwartsHouse: "Ravenclaw",
+                image: "https://ik.imagekit.io/hpapi/luna.jpg",
+                birthdate: "13-02-1981",
+                index: 4
+            ),
+            CharacterDomain(
+                fullName: "Neville Longbottom",
+                nickname: "Neville",
+                hogwartsHouse: "Gryffindor",
+                image: "https://ik.imagekit.io/hpapi/neville.jpg",
+                birthdate: "30-07-1980",
+                index: 5
+            )
+        ]
+        
+        // Randomize and repeat list
+        let repeated = (0..<10).flatMap { _ in characters.shuffled() }
+        return repeated.shuffled()
+    }()
 }

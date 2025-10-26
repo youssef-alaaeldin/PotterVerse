@@ -14,7 +14,8 @@ struct CharactersMapper: RemoteMapperProtocol {
             nickname: model.nickname,
             hogwartsHouse: model.hogwartsHouse,
             image: model.image,
-            birthdate: model.birthdate
+            birthdate: model.birthdate,
+            index: model.index
         )
         
     }
