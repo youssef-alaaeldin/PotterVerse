@@ -11,7 +11,7 @@ struct CharactersRequest: Endpoint {
     var parameters: [String : Any]?
     
     var path: String {
-        return "/api/characters"
+        return "/characters"
     }
     
     var headers: [String : String]?
