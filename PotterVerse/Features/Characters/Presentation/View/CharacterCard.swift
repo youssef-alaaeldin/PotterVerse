@@ -9,9 +9,11 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct CharacterCard: View {
+    var character: CharacterDomain
+    
     var body: some View {
             HStack(spacing: 16) {
-                WebImage(url: URL(string: "https://ik.imagekit.io/hpapi/harry.jpg"))
+                WebImage(url: URL(string: character.image))
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 135, height: 135)
@@ -23,13 +25,13 @@ struct CharacterCard: View {
                     .shadow(radius: 4)
                 
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("Harry Potter")
+                    Text(character.name)
                         .lineLimit(2)
                         .font(.custom(size: 20))
                         .fontWeight(.bold)
                         .foregroundStyle(.white)
                     
-                    Text("Human")
+                    Text(character.species.uppercased())
                         .font(.subheadline)
                         .foregroundStyle(.text)
                 }
@@ -45,9 +47,9 @@ struct CharacterCard: View {
         }
 }
 
-#Preview {
-    ZStack {
-        BackgroundGradient()
-        CharacterCard()
-    }
-}
+//#Preview {
+//    ZStack {
+//        BackgroundGradient()
+//        CharacterCard()
+//    }
+//}
