@@ -9,8 +9,9 @@ import Foundation
 import Combine
 import Factory
 
-class CharactersViewModel {
+class CharactersViewModel: ObservableObject {
     @Injected(\.getCharatersUseCase) private var getCharatersUseCase
+    @Injected(\.appState) private var appState
     
     @Published var characters: [CharacterDomain]? = []
     @Published var isCharactersLoading: Bool = false
@@ -24,6 +25,7 @@ class CharactersViewModel {
     }
     
     init() {
+        subscribeToCharacters()
         fetchCharacters()
     }
     
@@ -35,7 +37,7 @@ class CharactersViewModel {
 
 // MARK: Subscribe To Publishers
 extension CharactersViewModel {
-    func susbscribeToCharacters() {
+    func subscribeToCharacters() {
         $charactersLoadingState
             .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
@@ -66,12 +68,23 @@ extension CharactersViewModel {
                 let result = try await getCharatersUseCase.execute(charactersRequest: CharactersRequest())
                 await MainActor.run {
                     charactersLoadingState = .loaded(result)
+                    print("Joe true")
                 }
                 
             } catch {
-                print("Error")
+                await MainActor.run {
+                    charactersLoadingState = .error
+                    print("Error")
+                }
             }
         }
         myTasks.append(charactersTask)
+    }
+}
+
+// MARK: - Navgiation
+extension CharactersViewModel {
+    func pop() {
+        appState.activeRouter.pop()
     }
 }

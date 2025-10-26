@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Factory
 
 struct HomeView: View {
+    @Injected(\.appState) var appState: AppState
     
     private var columns = [
         GridItem(.flexible()),
@@ -34,7 +36,7 @@ extension HomeView {
     private var gridView: some View {
         LazyVGrid(columns: columns, spacing: 16) {
             HomeCardView(title: "Characters", imageName: "person.2") {
-                
+                appState.activeRouter.push(.characters)
             }
             HomeCardView(title: "Spells", imageName: "wand.and.sparkles") {
                 

@@ -20,6 +20,8 @@ extension NavRouter {
             Text("Favorites")
         case .profile:
             Text("Profile")
+        case .characters:
+            CharactersView()
         default:
             EmptyView()
         }

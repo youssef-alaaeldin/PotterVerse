@@ -14,6 +14,7 @@ enum Screen {
     case search
     case favorites
     case profile
+    case characters
 }
 
 extension Screen: Identifiable {
