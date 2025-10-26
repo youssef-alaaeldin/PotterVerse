@@ -9,11 +9,15 @@ import SwiftUI
 
 struct HeaderView: View {
     var title: String
+    var action: () -> Void
     
     var body: some View {
         HStack(spacing: 12) {
             Image(systemName: "arrow.left")
                 .foregroundStyle(.white)
+                .onTapGesture {
+                    action()
+                }
             
             Spacer()
             
@@ -25,9 +29,18 @@ struct HeaderView: View {
         }
         .padding()
         .background(.card)
+        .overlay(
+            Rectangle()
+                .frame(height: 1)
+                .foregroundStyle(.primaryGold)
+                .frame(maxHeight: .infinity, alignment: .bottom),
+            alignment: .bottom
+        )
     }
 }
 
-//#Preview {
-//    HeaderView()
-//}
+#Preview {
+    HeaderView(title: "header") {
+        
+    }
+}
